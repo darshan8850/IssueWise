@@ -22,17 +22,17 @@ theme = gr.themes.Soft(
     neutral_hue="zinc",
 )
 
-with gr.Blocks(title="OpenSorus – AI Maintainer Agent", theme=theme) as demo:
+with gr.Blocks(title="IssueWiz – AI Maintainer Agent", theme=theme) as demo:
     gr.Markdown("""
-    # OpenSorus – AI Maintainer Agent for GitHub Issues
+    # IssueWiz – AI Maintainer Agent for GitHub Issues
     
     **Reads the issue. Understands your repo. Replies in seconds.** - _Powered by Multiple AI Models 🧡 & LlamaIndex 🦙_
 
-    Let OpenSorus handle your first-level triage by autonomously pulling context from your codebase and commenting with a helpful fix/suggestion to help your contributors/customers.
+    Let IssueWiz handle your first-level triage by autonomously pulling context from your codebase and commenting with a helpful fix/suggestion to help your contributors/customers.
 
-    **Note**: Please [install the agent](https://github.com/apps/opensorus) as a GitHub app for a particular repository before using this tool.
+    **Note**: Please [install the agent](https://github.com/apps/IssueWiz) as a GitHub app for a particular repository before using this tool.
 
-    - **Quickest way to assign issues to OpenSorus**: Just mention @opensorus in the GitHub issue comments.
+    - **Quickest way to assign issues to IssueWiz**: Just mention @IssueWiz in the GitHub issue comments.
     - Alternatively, use this space to assign the issue by pasting the issue URL below & specifying the primary branch name of your codebase (e.g., main, master, etc.).
 
                 
@@ -59,7 +59,7 @@ with gr.Blocks(title="OpenSorus – AI Maintainer Agent", theme=theme) as demo:
                 type="messages",
                 avatar_images=(
                     None,
-                    "https://res.cloudinary.com/ivolve/image/upload/v1749307354/OpenSorus-logo_r2bfzw.jpg",
+                    "https://res.cloudinary.com/ivolve/image/upload/v1749307354/IssueWiz-logo_r2bfzw.jpg",
                 ),
                 height=250,
                 resizable=True,
@@ -77,14 +77,14 @@ with gr.Blocks(title="OpenSorus – AI Maintainer Agent", theme=theme) as demo:
     ---
                 
     ### 🛠 How It Works
-    1. [Install OpenSorus](https://github.com/apps/opensorus) as a GitHub App.
+    1. [Install IssueWiz](https://github.com/apps/IssueWiz) as a GitHub App.
     2. Configure the app to have access to your particular repository.
-    3. Mention @opensorus in any issue's comments.
+    3. Mention @IssueWiz in any issue's comments.
     4. Alternatively, use this space to paste the issue URL and specify the branch name (e.g., main, master, etc.).
     5. Select your preferred AI model from the dropdown.
-    6. Click Run Agent and OpenSorus will fetch issue details, read your code, and post a helpful comment.
+    6. Click Run Agent and IssueWiz will fetch issue details, read your code, and post a helpful comment.
     
-    > ### _OpenSorus is just like an L1 dev support assistant of your project that never sleeps — and knows your codebase ✨._
+    > ### _IssueWiz is just like an L1 dev support assistant of your project that never sleeps — and knows your codebase ✨._
     
     ---
 """)

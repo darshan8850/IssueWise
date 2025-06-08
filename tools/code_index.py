@@ -8,10 +8,8 @@ from llama_index.core.query_engine import RetrieverQueryEngine
 from llama_index.core.postprocessor import SimilarityPostprocessor
 from llama_index.embeddings.mistralai import MistralAIEmbedding
 from llama_index.embeddings.openai import OpenAIEmbedding
-from llama_index.embeddings.anthropic import AnthropicEmbedding
 from llama_index.llms.mistralai import MistralAI
 from llama_index.llms.openai import OpenAI
-from llama_index.llms.anthropic import Anthropic
 from config import AVAILABLE_MODELS
 from tools.utils import fetch_repo_files, fetch_file_content
 
@@ -28,8 +26,6 @@ def get_embedding_model(model_type: str):
         return MistralAIEmbedding(model_name="codestral-embed", api_key=model_config["api_key"])
     elif model_type == "openai":
         return OpenAIEmbedding(model="text-embedding-3-small", api_key=model_config["api_key"])
-    elif model_type == "claude":
-        return AnthropicEmbedding(model="claude-3-opus-20240229", api_key=model_config["api_key"])
     else:
         raise ValueError(f"Unsupported model type: {model_type}")
 
@@ -43,8 +39,6 @@ def get_llm_model(model_type: str):
         return MistralAI(model="codestral-latest", api_key=model_config["api_key"])
     elif model_type == "openai":
         return OpenAI(model="gpt-4-turbo-preview", api_key=model_config["api_key"])
-    elif model_type == "claude":
-        return Anthropic(model="claude-3-opus-20240229", api_key=model_config["api_key"])
     else:
         raise ValueError(f"Unsupported model type: {model_type}")
 

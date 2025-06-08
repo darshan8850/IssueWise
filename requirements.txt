@@ -4,8 +4,8 @@ llama_index.llms.mistralai
 llama_index.embeddings.mistralai
 mistralai==1.8.1
 openai
-anthropic
 PyJWT==2.10.1
 python-dotenv==1.1.0
 scikit-learn==1.6.1
 requests==2.32.3
+cryptography

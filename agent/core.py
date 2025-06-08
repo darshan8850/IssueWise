@@ -1,7 +1,6 @@
 import json
 from mistralai import Mistral
 from openai import OpenAI
-from anthropic import Anthropic
 from agent.agent_config import prompts
 from agent.agent_config import tool_schema
 from config import AVAILABLE_MODELS
@@ -30,8 +29,6 @@ def get_model_client(model_type):
         return Mistral(api_key=model_config["api_key"]), model_config["model"]
     elif model_type == "openai":
         return OpenAI(api_key=model_config["api_key"]), model_config["model"]
-    elif model_type == "claude":
-        return Anthropic(api_key=model_config["api_key"]), model_config["model"]
     else:
         raise ValueError(f"Unsupported model type: {model_type}")
 
@@ -51,7 +48,7 @@ async def run_agent(issue_url: str, branch_name: str = "main", model_type: str =
     }
     messages = [system_message, user_message]
 
-    yield f"⚡️ OpenSorus agent started using {AVAILABLE_MODELS[model_type]['name']}..."
+    yield f"⚡️ IssueWiz agent started using {AVAILABLE_MODELS[model_type]['name']}..."
 
     while True:
         if model_type == "mistral":
@@ -70,13 +67,6 @@ async def run_agent(issue_url: str, branch_name: str = "main", model_type: str =
                 tool_choice="auto",
             )
             msg = response.choices[0].message
-        elif model_type == "claude":
-            response = client.messages.create(
-                model=model,
-                messages=messages,
-                tools=tools,
-            )
-            msg = response.content[0]
 
         messages.append(msg)
 
@@ -130,7 +120,7 @@ async def run_agent(issue_url: str, branch_name: str = "main", model_type: str =
                 yield f"Agent stopped after {MAX_STEPS} tool calls to protect against rate limiting."
                 break
         else:
-            yield f"OpenSorus (final): {msg.content}"
+            yield f"IssueWiz (final): {msg.content}"
             break
 
     yield "Task Completed"
